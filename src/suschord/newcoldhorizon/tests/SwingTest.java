@@ -1,24 +1,10 @@
+package suschord.newcoldhorizon.tests;
+
 import net.slashie.libjcsi.*;
 import net.slashie.util.*;
 import net.slashie.libjcsi.wswing.*;
-import net.slashie.libjcsi.textcomponents.*;
+import suschord.libjcsi.textcomponents.*;
 import java.util.*;
-
-class MyMenuItem implements MenuItem {
-  char mchar;
-  int color;
-  String desc;
-  
-  public MyMenuItem(char c, int co, String d) {
-    this.mchar = c;
-    this.color = co;
-    this.desc = d;
-  }
-  
-  public char getMenuChar() {return mchar;}
-  public int getMenuColor() {return color;}
-  public String getMenuDescription() {return desc;}
-}
 
 public class SwingTest {
   static Position pos = new Position(2,2);
@@ -94,20 +80,20 @@ public class SwingTest {
     }
     */
     
-    /*
+    
     // menubox is pretty broken...
     MenuBox mb = new MenuBox(csi);
-    Vector<MyMenuItem> m_items = new Vector<MyMenuItem>();
-    m_items.add(new MyMenuItem('a', ConsoleSystemInterface.RED, "An item."));
-    m_items.add(new MyMenuItem('b', ConsoleSystemInterface.GREEN, "An item."));
-    m_items.add(new MyMenuItem('c', ConsoleSystemInterface.YELLOW, "An item."));
-    m_items.add(new MyMenuItem('d', ConsoleSystemInterface.WHITE, "An item."));
-    m_items.add(new MyMenuItem('e', ConsoleSystemInterface.BLUE, "An item."));
-    m_items.add(new MyMenuItem('f', ConsoleSystemInterface.BROWN, "An item."));
-    m_items.add(new MyMenuItem('g', ConsoleSystemInterface.CYAN, "An item."));
-    m_items.add(new MyMenuItem('h', ConsoleSystemInterface.LEMON, "An item."));
-    m_items.add(new MyMenuItem('i', ConsoleSystemInterface.MAGENTA, "An item."));
-    m_items.add(new MyMenuItem('j', ConsoleSystemInterface.TEAL, "An item."));
+    Vector<BasicMenuItem> m_items = new Vector<BasicMenuItem>();
+    m_items.add(new BasicMenuItem('a', ConsoleSystemInterface.RED, "An item."));
+    m_items.add(new BasicMenuItem('b', ConsoleSystemInterface.GREEN, "An item."));
+    m_items.add(new BasicMenuItem('c', ConsoleSystemInterface.YELLOW, "An item."));
+    m_items.add(new BasicMenuItem('d', ConsoleSystemInterface.WHITE, "An item."));
+    m_items.add(new BasicMenuItem('e', ConsoleSystemInterface.BLUE, "An item."));
+    m_items.add(new BasicMenuItem('f', ConsoleSystemInterface.BROWN, "An item."));
+    m_items.add(new BasicMenuItem('g', ConsoleSystemInterface.CYAN, "An item."));
+    m_items.add(new BasicMenuItem('h', ConsoleSystemInterface.LEMON, "An item."));
+    m_items.add(new BasicMenuItem('i', ConsoleSystemInterface.MAGENTA, "An item."));
+    m_items.add(new BasicMenuItem('j', ConsoleSystemInterface.TEAL, "An item."));
     mb.setMenuItems(m_items);
     mb.setPosition(pos.x, pos.y);
     mb.setPrompt("Select something.");
@@ -124,12 +110,12 @@ public class SwingTest {
     
     csi.waitKey(CharKey.ENTER);
     while(true) {
-      System.out.println(((MyMenuItem)mb.getSelection()).getMenuDescription());
+      System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
     }
-    */
     
     
     
+    /*
     do {
       csi.cls();
       csi.print(pos.x, pos.y, "@", ConsoleSystemInterface.RED);
@@ -144,6 +130,6 @@ public class SwingTest {
       //System.out.println(x);
       //System.out.println(y);
     } while(true);
-    
+    */
   }
 }
