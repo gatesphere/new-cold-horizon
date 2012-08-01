@@ -1,0 +1,5 @@
+org.tmatesoft.sqljet.core
+org.tmatesoft.sqljet.core.map
+org.tmatesoft.sqljet.core.schema
+org.tmatesoft.sqljet.core.table
+org.tmatesoft.sqljet.core.table.engine

@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-CP=lib/libjcsi.jar:classes/.:.
+LIB=lib/
+CP=classes/:.
+
+for jarfile in `ls ${LIB}*.jar`; do
+  CP=$jarfile:$CP
+done
+echo $CP
 
 echo "Running..."
 if [[ $OSTYPE == linux-gnu ]] || [[ ${OSTYPE//[0-9.]/} == darwin ]]; then
