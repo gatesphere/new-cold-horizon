@@ -15,55 +15,43 @@ public class SwingTest {
     try {
       csi = new WSwingConsoleInterface("SwingTest.java", false);
     } catch (Exception ex) {ex.printStackTrace();}
+       
     
-    /*
     DialogBox db = new DialogBox(csi, 1, "What is your name?");
     csi.cls();
     db.draw();
     csi.refresh();
-    */
+    csi.waitKey(CharKey.ENTER);
+    csi.cls();
     
-    /*
     ListBox lb = new ListBox(csi);
     lb.setPosition(pos.x, pos.y);
     lb.setBorder(true);
     lb.addElement(new BasicListItem('a', ConsoleSystemInterface.RED, "An example item."));
     lb.addElement(new BasicListItem('b', ConsoleSystemInterface.GREEN, "Another example item."));
-    System.out.println("CSIColor.RED.getColor(): " + CSIColor.RED.getColor());
-    System.out.println("ConsoleSystemInterface.RED: " + ConsoleSystemInterface.RED);
     lb.setWidth(40);
     lb.setHeight(4);
-    
-    //csi.cls();
+    csi.cls();
     lb.draw();
+    lb.drawBorder();
     csi.refresh();
+    csi.waitKey(CharKey.ENTER);
+    csi.cls();
     
-    while(true) {
-      csi.waitKey(CharKey.ENTER);
-      csi.cls();
-      lb.draw();
-      lb.drawBorder();
-      csi.refresh();
-    }
-    */
-    
-    /*
     TextBox tb = new TextBox(csi);
     tb.setPosition(pos.x, pos.y);
     tb.setHeight(4);
     tb.setWidth(22);
     tb.setBorder(true);
     tb.setTitle("Tutorial");
-    tb.setText("Welcome to the game.");
+    tb.setText("Welcome.");
     
     tb.draw();
     tb.drawBorder();
     csi.refresh();
+    csi.waitKey(CharKey.ENTER);
+    csi.cls();
     
-    while(true);
-    */
-    
-    /*
     TextInformBox tib = new TextInformBox(csi);
     tib.setPosition(pos.x, pos.y);
     tib.setHeight(4);
@@ -71,15 +59,12 @@ public class SwingTest {
     tib.setBorder(true);
     tib.setText("Welcome to the game.");
     
-    while(true) {
-      tib.draw();
-      //tib.drawBorder();
-      csi.refresh();
-      csi.waitKey(CharKey.ENTER);
-      tib.addText("Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. ");
-    }
-    */
-    
+    tib.draw();
+    tib.drawBorder();
+    csi.refresh();
+    tib.addText("Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. ");
+    csi.waitKey(CharKey.ENTER);
+    csi.cls();
     
     // menubox is pretty broken...
     MenuBox mb = new MenuBox(csi);
@@ -105,7 +90,7 @@ public class SwingTest {
     
     csi.cls();
     mb.draw();
-    //mb.drawBorder();
+    mb.drawBorder();
     csi.refresh();
     
     csi.waitKey(CharKey.ENTER);

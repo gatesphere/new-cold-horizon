@@ -17,6 +17,7 @@ public class ListBox extends TextComponent {
     }
 
     public void draw() {
+        drawBorder();
         clearBox();
         int length = (itemsLista.size() < super.inHeight ? itemsLista.size() : super.inHeight);
         for (int i = 0; i < length; i++) {

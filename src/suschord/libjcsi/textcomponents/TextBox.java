@@ -61,6 +61,7 @@ public class TextBox extends TextComponent {
      * Outputs box to interface.
      */
     public void draw() {
+        drawBorder();
         if (height == 0) {
             return;
         }

@@ -97,6 +97,7 @@ public class MenuBox extends TextComponent {
      * Prints the menu to the screen.
      */
     public void draw() {
+        drawBorder();
         pages = (int) (Math.floor((items.size() - 1) / (inHeight - promptSize)) + 1);
         clearBox();
         drawBorder();

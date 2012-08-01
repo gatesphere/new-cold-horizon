@@ -33,6 +33,7 @@ public class TextInformBox extends TextComponent {
      * Outputs the box to the interface.
      */
     public void draw() {
+        drawBorder();
         for (int i = 0; i < lines.length; i++) {
             si.print(position.x, position.y + i, lines[i].toString(), foreColor);
         }
