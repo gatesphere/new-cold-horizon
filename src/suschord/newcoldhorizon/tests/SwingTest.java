@@ -68,7 +68,6 @@ public class SwingTest {
     csi.waitKey(CharKey.ENTER);
     csi.cls();
     
-    // menubox is pretty broken...
     MenuBox mb = new MenuBox(csi);
     Vector<BasicMenuItem> m_items = new Vector<BasicMenuItem>();
     m_items.add(new BasicMenuItem('a', ConsoleSystemInterface.RED, "An item."));
@@ -94,13 +93,10 @@ public class SwingTest {
     mb.draw();
     csi.refresh();
     
-    while(true) {
-      System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
-    }
+    System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
     
     
     
-    /*
     do {
       csi.cls();
       csi.print(pos.x, pos.y, "@", ConsoleSystemInterface.RED);
@@ -115,6 +111,5 @@ public class SwingTest {
       //System.out.println(x);
       //System.out.println(y);
     } while(true);
-    */
   }
 }
