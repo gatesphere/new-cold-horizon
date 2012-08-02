@@ -171,13 +171,13 @@ public abstract class TextComponent implements Serializable {
             si.print(position.x + width, y, '|', borderColor);
         }
 
-        si.print(position.x, position.y, '/', borderColor);
-        si.print(position.x + width, position.y + height, '/', borderColor);
-        si.print(position.x, position.y + height, '\\', borderColor);
-        si.print(position.x + width, position.y, '\\', borderColor);
+        si.print(position.x, position.y, '+', borderColor);
+        si.print(position.x + width, position.y + height, '+', borderColor);
+        si.print(position.x, position.y + height, '+', borderColor);
+        si.print(position.x + width, position.y, '+', borderColor);
     }
 
-    private void recalcInnerBounds() {
+    protected void recalcInnerBounds() {
         if (hasBorder()) {
             inPosition = new Position(position.x + 1, position.y + 1);
             inWidth = width - 2;

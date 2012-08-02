@@ -23,10 +23,17 @@ public class TextInformBox extends TextComponent {
     @Override
     public void setHeight(int value) {
         super.setHeight(value);
+        inHeight++;
         lines = new StringBuffer[value];
         for (int i = 0; i < lines.length; i++) {
             lines[i] = new StringBuffer("");
         }
+    }
+
+    @Override
+    public void recalcInnerBounds() {
+      super.recalcInnerBounds();
+      inHeight++;
     }
 
     /**
@@ -35,7 +42,7 @@ public class TextInformBox extends TextComponent {
     public void draw() {
         drawBorder();
         for (int i = 0; i < lines.length; i++) {
-            si.print(position.x, position.y + i, lines[i].toString(), foreColor);
+            si.print(inPosition.x, inPosition.y + i, lines[i].toString(), foreColor);
         }
     }
 
@@ -46,17 +53,21 @@ public class TextInformBox extends TextComponent {
     public void addText(String text) {
         String[] tokens = text.split(" ");
         for (int i = 0; i < tokens.length; i++) {
-            int distance = width - curx;
-            if (cury >= height - 1) {
+            //System.out.println("i = " + i);
+            int distance = inWidth - curx;
+            //System.out.println("  distance = " + distance);
+            //System.out.println("  token = " + tokens[i]);
+            if (cury >= inHeight - 1) {
                 distance -= "[MORE]".length();
             }
             if (distance < tokens[i].length() + 1) {
-                if (cury < height - 1) {
+                if (cury < inHeight - 1) {
                     curx = 0;
                     cury++;
                 } else {
                     //i--;
                     lines[cury].append("[MORE]");
+                    //System.out.println("  Appending [MORE].  cury = " + cury);
                     morePrompt();
                     clear();
                 }
@@ -64,6 +75,9 @@ public class TextInformBox extends TextComponent {
             lines[cury].append(tokens[i] + " ");
             curx += tokens[i].length() + 1;
         }
+        //System.out.println("Final screen.");
+        clear(true);
+        draw();
     }
 
     /**
@@ -79,14 +93,25 @@ public class TextInformBox extends TextComponent {
      * Erases content but leaves box
      */
     public void clear() {
+        //System.out.println("clear() called: spaces = \"" + spaces + "\", length = " + spaces.length());
         for (int i = 0; i < lines.length; i++) {
             lines[i] = new StringBuffer("");
         }
-        for (int i = 0; i < height; i++) {
-            si.print(position.x, position.y + i, spaces);
+        for (int i = 0; i < inHeight; i++) {
+            si.print(inPosition.x, inPosition.y + i, spaces);
         }
         curx = 0;
         cury = 0;
+    }
+    
+    public void clear(boolean doublebuffer) {
+      if(doublebuffer) {
+        for(int i = 0; i < inHeight; i++) {
+          si.print(inPosition.x, inPosition.y + i, spaces);
+        }
+      } else {
+        clear();
+      }
     }
 
     /**

@@ -33,7 +33,6 @@ public class SwingTest {
     lb.setHeight(4);
     csi.cls();
     lb.draw();
-    lb.drawBorder();
     csi.refresh();
     csi.waitKey(CharKey.ENTER);
     csi.cls();
@@ -47,7 +46,6 @@ public class SwingTest {
     tb.setText("Welcome.");
     
     tb.draw();
-    tb.drawBorder();
     csi.refresh();
     csi.waitKey(CharKey.ENTER);
     csi.cls();
@@ -60,9 +58,12 @@ public class SwingTest {
     tib.setText("Welcome to the game.");
     
     tib.draw();
-    tib.drawBorder();
     csi.refresh();
-    tib.addText("Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. Lorem ipsum dolar sit amet. ");
+    tib.addText("AAAA BBBBB CCCCC DDDDD EEEEE FFFFF GGGGG HHHHH IIIII JJJJJ KKKKK LLLLL MMMMM NNNNN OOOOO PPPPP QQQQQ RRRRR SSSSS TTTTT WWWWW XXXXX YYYYY ZZZZZ AAAA BBBBB CCCCC DDDDD EEEEE FFFFF GGGGG HHHHH IIIII JJJJJ KKKKK LLLLL MMMMM NNNNN OOOOO PPPPP QQQQQ RRRRR SSSSS TTTTT WWWWW XXXXX YYYYY ZZZZZ AAAA BBBBB CCCCC DDDDD EEEEE FFFFF GGGGG HHHHH IIIII JJJJJ KKKKK LLLLL MMMMM NNNNN OOO PPPPP QQQQQ RRRRR SSSSS TTTTT WWWWW XXXXX YYYYY ZZZZZ");
+    csi.refresh();
+    csi.waitKey(CharKey.ENTER);
+    tib.clear();
+    csi.refresh();
     csi.waitKey(CharKey.ENTER);
     csi.cls();
     
@@ -90,10 +91,8 @@ public class SwingTest {
     
     csi.cls();
     mb.draw();
-    mb.drawBorder();
     csi.refresh();
     
-    csi.waitKey(CharKey.ENTER);
     while(true) {
       System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
     }

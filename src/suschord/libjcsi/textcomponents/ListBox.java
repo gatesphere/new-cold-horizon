@@ -40,10 +40,12 @@ public class ListBox extends TextComponent {
         addElements(elements);
     }
 
+    @SuppressWarnings("unchecked")
     public void addElements(Vector elements) {
         itemsLista.addAll(elements);
     }
 
+    @SuppressWarnings("unchecked")
     public void addElement(ListItem element) {
         itemsLista.add(element);
     }
