@@ -104,14 +104,16 @@ public class MenuBox extends TextComponent {
         if (hasBorder()) {
             si.print(position.x + 2, position.y, title);
         }
+        //System.out.println("Drawing promptBox...");
         promptBox.draw();
 
-        int pageElements = inHeight - promptSize;
+        int pageElements = inHeight - promptSize + 1;
         Vector shownItems = Util.page(items, pageElements, currentPage);
 
         int i = 0;
         for (; i < shownItems.size(); i++) {
             MenuItem item = (MenuItem) shownItems.elementAt(i);
+            //System.out.println("Item position: " + inPosition.x + ", " + (inPosition.y + i + promptSize));
             si.print(inPosition.x, inPosition.y + i + promptSize, ((char) (97 + i)) + ".");
             si.print(inPosition.x + 2, inPosition.y + i + promptSize, item.getMenuChar(), item.getMenuColor());
             String description = item.getMenuDescription();

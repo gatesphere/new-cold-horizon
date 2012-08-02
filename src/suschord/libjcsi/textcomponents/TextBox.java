@@ -62,6 +62,8 @@ public class TextBox extends TextComponent {
      */
     public void draw() {
         drawBorder();
+        //System.out.println("Position: " + position.x + ", " + position.y);
+        //System.out.println("Lines[0]: " + lines[0]);
         if (height == 0) {
             return;
         }

@@ -57,7 +57,6 @@ public class SwingTest {
     tib.setHeight(4);
     tib.setWidth(22);
     tib.setBorder(true);
-    tib.setText("Welcome to the game.");
     
     tib.draw();
     csi.refresh();
@@ -84,12 +83,12 @@ public class SwingTest {
     m_items.add(new BasicMenuItem('j', ConsoleSystemInterface.TEAL, "An item."));
     mb.setMenuItems(m_items);
     mb.setPosition(pos.x, pos.y);
-    mb.setPrompt("Select something.");
-    mb.setPromptSize(9);
     mb.setHeight(10);
     mb.setWidth(22);
-    //mb.setBorder(true);
-    //mb.setTitle("A menu.");
+    mb.setBorder(true);
+    mb.setPromptSize(1);
+    mb.setPrompt("Select something.");
+    mb.setTitle("A menu.");
     
     csi.cls();
     mb.draw();
