@@ -1,6 +1,7 @@
 package suschord.libjcsi.textcomponents;
 
 import net.slashie.libjcsi.ConsoleSystemInterface;
+import net.slashie.libjcsi.*;
 
 /**
  *Allows easy creation of a self-sizing box to display information which needs
@@ -40,5 +41,35 @@ public class DialogBox extends TextBox {
         setHeight(lines + 3);//this leaves space for the borders and an input area
         setBorder(true);
         setText(args);
+    }
+    
+    public String getInput(int maxLength) {
+      int x = inPosition.x;
+      int y = inPosition.y + inHeight;
+      si.print(x, y, "_");
+      si.refresh();
+      StringBuffer sb = new StringBuffer("");
+      CharKey key = new CharKey(CharKey.NONE);
+      while (true) {
+        key = si.inkey();
+        if((key.isAlphaNumeric() || key.code == CharKey.SPACE) && x != inPosition.x + maxLength) {
+          sb.append(key.toString());
+          si.print(x, y, key.toString() + "_");
+          si.refresh();
+          x++;
+        }
+        if(key.code == CharKey.ENTER) {
+          break;
+        }
+        if(key.code == CharKey.BACKSPACE && x != inPosition.x) {
+          x--;
+          si.print(x, y, "_ ");
+          si.refresh();
+          sb.deleteCharAt(sb.length() - 1);
+        }
+      }
+      si.print(x, y, " ");
+      si.refresh();
+      return sb.toString();
     }
 }

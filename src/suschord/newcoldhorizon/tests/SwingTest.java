@@ -18,9 +18,11 @@ public class SwingTest {
        
     
     DialogBox db = new DialogBox(csi, 1, "What is your name?");
+    db.setPosition(pos.x, pos.y);
     csi.cls();
     db.draw();
     csi.refresh();
+    System.out.println("recieved: " + db.getInput(15));
     csi.waitKey(CharKey.ENTER);
     csi.cls();
     
