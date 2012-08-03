@@ -94,22 +94,5 @@ public class SwingTest {
     csi.refresh();
     
     System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
-    
-    
-    
-    do {
-      csi.cls();
-      csi.print(pos.x, pos.y, "@", ConsoleSystemInterface.RED);
-      csi.refresh();
-      CharKey key = csi.inkey();
-      //System.out.println(key);
-      if(key.isUpArrow()) pos.y--;
-      if(key.isDownArrow()) pos.y++;
-      if(key.isLeftArrow()) pos.x--;
-      if(key.isRightArrow()) pos.x++;
-      if(key.code == CharKey.ESC) System.exit(0);
-      //System.out.println(x);
-      //System.out.println(y);
-    } while(true);
   }
 }
