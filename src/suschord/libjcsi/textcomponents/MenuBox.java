@@ -12,16 +12,16 @@ import net.slashie.util.*;
  */
 public class MenuBox extends TextComponent {
 
-    private Vector items;
-    private int promptSize;
-    private String title = "";
+    protected Vector items;
+    protected int promptSize;
+    protected String title = "";
 
     /* State Attributes */
-    private int currentPage;
-    private int pages;
+    protected int currentPage;
+    protected int pages;
 
     /* Components */
-    private TextBox promptBox;
+    protected TextBox promptBox;
 
     /**
      * Creates a new menu.

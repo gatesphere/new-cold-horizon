@@ -39,6 +39,19 @@ public class SwingTest {
     csi.waitKey(CharKey.ENTER);
     csi.cls();
     
+    ListBoxCSI lbc = new ListBoxCSI(csi);
+    lbc.setPosition(pos.x, pos.y);
+    lbc.setBorder(true);
+    lbc.addElement(new BasicListItemCSI('a', CSIColor.ELECTRIC_INDIGO, "An example item (CSIColor)"));
+    lbc.addElement(new BasicListItemCSI('b', CSIColor.PEACH_YELLOW, "Another example item (CSIColor)"));
+    lbc.setWidth(40);
+    lbc.setHeight(4);
+    csi.cls();
+    lbc.draw();
+    csi.refresh();
+    csi.waitKey(CharKey.ENTER);
+    csi.cls();
+    
     TextBox tb = new TextBox(csi);
     tb.setPosition(pos.x, pos.y);
     tb.setHeight(4);
@@ -92,7 +105,35 @@ public class SwingTest {
     csi.cls();
     mb.draw();
     csi.refresh();
-    
     System.out.println(((BasicMenuItem)mb.getSelection()).getMenuDescription());
+    
+    
+    MenuBoxCSI mbc = new MenuBoxCSI(csi);
+    Vector<BasicMenuItemCSI> mc_items = new Vector<BasicMenuItemCSI>();
+    mc_items.add(new BasicMenuItemCSI('a', CSIColor.PERSIAN_PINK, "An item."));
+    mc_items.add(new BasicMenuItemCSI('b', CSIColor.PUMPKIN, "An item."));
+    mc_items.add(new BasicMenuItemCSI('c', CSIColor.PUCE, "An item."));
+    mc_items.add(new BasicMenuItemCSI('d', CSIColor.MAYA_BLUE, "An item."));
+    mc_items.add(new BasicMenuItemCSI('e', CSIColor.MAGIC_MINT, "An item."));
+    mc_items.add(new BasicMenuItemCSI('f', CSIColor.MISTY_ROSE, "An item."));
+    mc_items.add(new BasicMenuItemCSI('g', CSIColor.VIRIDIAN, "An item."));
+    mc_items.add(new BasicMenuItemCSI('h', CSIColor.TYRIAN_PURPLE, "An item."));
+    mc_items.add(new BasicMenuItemCSI('i', CSIColor.TOMATO, "An item."));
+    mc_items.add(new BasicMenuItemCSI('j', CSIColor.ECRU, "An item."));
+    mbc.setMenuItems(mc_items);
+    mbc.setPosition(pos.x, pos.y);
+    mbc.setHeight(10);
+    mbc.setWidth(22);
+    mbc.setBorder(true);
+    mbc.setPromptSize(1);
+    mbc.setPrompt("Select something.");
+    mbc.setTitle("A menu (CSIColor).");
+    
+    csi.cls();
+    mbc.draw();
+    csi.refresh();
+    System.out.println(((BasicMenuItemCSI)mbc.getSelection()).getMenuDescription());
+    
+    System.exit(0);
   }
 }

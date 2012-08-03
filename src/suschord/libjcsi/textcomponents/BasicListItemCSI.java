@@ -2,7 +2,7 @@ package suschord.libjcsi.textcomponents;
 
 import net.slashie.libjcsi.CSIColor;
 
-public class BasicListItemCSI implements ListItem {
+public class BasicListItemCSI {
 
     private String rowData;
     private char index;

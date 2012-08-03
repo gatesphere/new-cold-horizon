@@ -2,13 +2,13 @@ package suschord.libjcsi.textcomponents;
 
 import net.slashie.libjcsi.CSIColor;
 
-public class BasicMenuItemCSI implements MenuItem {
+public class BasicMenuItemCSI {
 
     private char menuchar;
     private CSIColor color;
     private String desc;
 
-    public BasicMenuItem(char menuchar, int color, String desc) {
+    public BasicMenuItemCSI(char menuchar, CSIColor color, String desc) {
         setMenuDescription(desc);
         this.menuchar = menuchar;
         this.color = color;
